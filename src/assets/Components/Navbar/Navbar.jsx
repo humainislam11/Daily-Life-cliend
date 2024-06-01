@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import { Link,NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { IoIosNotifications } from "react-icons/io";
 const Navbar = () => {
 
     const {user, logOut} = useContext(AuthContext);
@@ -25,14 +26,38 @@ const Navbar = () => {
           </NavLink>
     
           <NavLink
-            to="/allBlog"
+            to="/membership"
             className={({ isActive }) =>
               isActive
                 ? "font-semibold border-2 border-solid rounded-md px-5 py-1 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
                 : "font-semibold"
             }
           >
-            All Blogs
+             Membership
+          </NavLink>
+
+
+          <NavLink
+            to="/addPost"
+            className={({ isActive }) =>
+              isActive
+                ? "font-semibold border-2 border-solid rounded-md px-5 py-1 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                : "font-semibold"
+            }
+          >
+            Add Post
+          </NavLink>
+
+
+          <NavLink
+            to="/myPost"
+            className={({ isActive }) =>
+              isActive
+                ? "font-semibold border-2 border-solid rounded-md px-5 py-1 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                : "font-semibold"
+            }
+          >
+            My Post
           </NavLink>
     
           <NavLink
@@ -43,7 +68,7 @@ const Navbar = () => {
                 : "font-semibold"
             }
           >
-            Add Blog
+           <IoIosNotifications className="text-3xl"/>
           </NavLink>
     
           
@@ -137,9 +162,9 @@ const Navbar = () => {
         {
     user?
     
-    <button onClick={handleSignOut} className="btn">Log Out</button>
+    <button onClick={handleSignOut} className="btn">Sing Out</button>
     :
-    <Link to="/login" className="btn font-bold">Login</Link>
+    <Link to="/login" className="btn font-bold">JOIN US</Link>
   }
       </div>
     </div>
