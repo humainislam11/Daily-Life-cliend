@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link,NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { IoIosNotifications } from "react-icons/io";
+import { BsCartFill } from "react-icons/bs";
 const Navbar = () => {
 
     const {user, logOut} = useContext(AuthContext);
@@ -37,27 +38,20 @@ const Navbar = () => {
           </NavLink>
 
 
+         
+
           <NavLink
-            to="/addPost"
+            to="/dashboardUser"
             className={({ isActive }) =>
               isActive
                 ? "font-semibold border-2 border-solid rounded-md px-5 py-1 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
                 : "font-semibold"
             }
           >
-            Add Post
-          </NavLink>
-
-
-          <NavLink
-            to="/myPost"
-            className={({ isActive }) =>
-              isActive
-                ? "font-semibold border-2 border-solid rounded-md px-5 py-1 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
-                : "font-semibold"
-            }
-          >
-            My Post
+          <div className="flex">
+            <h1>Dashboard</h1>
+          <BsCartFill className="mt-1 ml-1"/>
+          </div>
           </NavLink>
     
           <NavLink
@@ -70,6 +64,11 @@ const Navbar = () => {
           >
            <IoIosNotifications className="text-3xl"/>
           </NavLink>
+
+
+
+          
+          
     
           
     
@@ -79,7 +78,7 @@ const Navbar = () => {
 
     )
     return (
-        <div className="navbar bg-base-100 max-w-6xl mx-auto">
+        <div className="navbar bg-slate-100 max-w-6xl mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

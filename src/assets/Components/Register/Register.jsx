@@ -5,8 +5,13 @@ import photo from '../../../../public/9545165.png'
 import { FaEye ,FaEyeSlash } from 'react-icons/fa';
 import Swal from 'sweetalert2'
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const Register = () => {
+
+    const axiosPublic = useAxiosPublic();
+
+
 
     const {createUser} = useContext(AuthContext);
   
@@ -40,15 +45,26 @@ const Register = () => {
         
         createUser(email,password)
     .then( () => {
-
-      "/"
-      Swal.fire({
+      const userInfo = {
+        name : name,
+        email : email
+      }
+      axiosPublic.post('/users',userInfo)
+      .then(res =>{
+        if(res.data.insertedId){
+        console.log('user add to the database')
+          Swal.fire({
             
-        icon: "success",
-        title: "Register successfully",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+            icon: "success",
+            title: "Register successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+
+      
+     
       
       
     //   updateUserProfile(name,photo)
