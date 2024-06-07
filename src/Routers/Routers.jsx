@@ -29,7 +29,8 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             },{
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader : ()=> fetch('http://localhost:5000/allPost')
             },{
                 path: '/updateProfile',
                 element: <PrivateRoot><UpdateProfile></UpdateProfile></PrivateRoot>

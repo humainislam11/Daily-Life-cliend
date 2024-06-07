@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
+
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
 const AddPost = () => {
     
-    const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const {user} = useContext(AuthContext)
     const handleAddPost = event =>{
         event.preventDefault();
@@ -20,7 +21,7 @@ const AddPost = () => {
 
         console.log(newPost);
 
-        axiosPublic.post('/post',newPost)
+        axiosSecure.post('/post',newPost)
         .then(res =>{
             if(res.data.insertedId){
             console.log('post add to the database')
