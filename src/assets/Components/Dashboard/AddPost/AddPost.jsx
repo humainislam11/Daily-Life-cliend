@@ -14,10 +14,10 @@ const AddPost = () => {
         event.preventDefault();
         const from = event.target;
         const postTitle = from.postTitle.value;
-       
+        const photo = from.photo.value;
         const postDescription = from.postDescription.value; // Added longDescription
 
-        const newPost = { postTitle,postDescription,userName:user.displayName,email:user.email,userPhoto:user.photoURL};
+        const newPost = { postTitle,photo,postDescription,userName:user.displayName,email:user.email,userPhoto:user.photoURL};
 
         console.log(newPost);
 
@@ -67,6 +67,14 @@ const AddPost = () => {
                    
 
                 </div>
+
+                <div className="form-control mb-4">
+               <label className="label">
+                 <span className="label-text text-[17px] text-lime-600 font-semibold">Photo</span>
+               </label>
+               <input type="text" name="photo" placeholder="Enter Photo url" className="input input-bordered w-full" />
+              
+             </div> 
 
                 
 

@@ -23,7 +23,7 @@ const MyPost = () => {
                 <h1 className="text-4xl mb-7 font-bold">My List</h1>
                 <p className="text-[18px] mb-6 font-semibold">Embark on a journey through the heart of history, where every corner tells a story, every monument whispers <br /> secrets of the past, and every vista promises unforgettable memories etched in time.</p>
             </div>
-         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto'>
+         <div className=' max-w-6xl mx-auto'>
          {
              list.map(l => <MyListPost l={l} key={l._id}></MyListPost>)
             }
