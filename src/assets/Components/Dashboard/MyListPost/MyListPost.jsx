@@ -1,4 +1,5 @@
-import { MdDelete, MdOutlineDeleteOutline } from "react-icons/md";
+import { FaCommentAlt } from "react-icons/fa";
+import {  MdOutlineDeleteOutline } from "react-icons/md";
 
 
 
@@ -15,8 +16,10 @@ const MyListPost = ({l}) => {
       <tr>
        
         <td className="font-bold w-56 text-[15px]">{postTitle}</td>
+        <tb><FaCommentAlt className="" /></tb>
         <td className="font-semibold text-lime-500">UpVote</td>
         <td className="font-semibold text-red-700">DownVote</td>
+        
         <tb><MdOutlineDeleteOutline className="text-red-600 mt-3 text-[20px]" /></tb>
         
       </tr>

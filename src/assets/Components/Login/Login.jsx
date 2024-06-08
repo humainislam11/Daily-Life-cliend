@@ -8,6 +8,7 @@ import { FaEye ,FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 import Swal from "sweetalert2";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 
 
@@ -22,7 +23,7 @@ const Login = () => {
   ///google login
   // const auth = getAuth();
   // const provider = new GoogleAuthProvider()
-
+  const axiosPublic = useAxiosPublic();
   const {signIn,googleLogin,githubLogin} = useContext(AuthContext);
   const [showPassword,setShowPassword] = useState(false);
   const location = useLocation();
@@ -68,13 +69,15 @@ const Login = () => {
       googleLogin()
       .then( result =>{
         console.log(result.user);
-        Swal.fire({
-            
-          icon: "success",
-          title: "Login successfully",
-          showConfirmButton: false,
-          timer: 1500
-        });
+        const userInfo = {
+          email: result.user?.email,
+          name: result.user?.displayName
+         }
+         axiosPublic.post('/users',userInfo)
+         .then( res =>{
+              console.log(res.data);
+             
+         })
       })
       .catch(error =>{
         console.error(error);

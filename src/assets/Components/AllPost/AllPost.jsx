@@ -1,10 +1,52 @@
 
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
 import { AiFillDislike, AiFillLike } from 'react-icons/ai';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+
+import Swal from 'sweetalert2';
+
 
 const AllPost = ({posts}) => {
+
+   
+
+    const {user} = useContext(AuthContext);
+    const {postTitle,postDescription,photo,_id} = posts;
+    console.log(_id)
+
+    const handleComment = event =>{
+        event.preventDefault();
+        const from = event.target;
+        const comment = from.comment.value;
+        const addComment = {comment}
+        console.log(addComment);
+
+
+        fetch(`http://localhost:5000/allPost/${_id}`,{
+            method : 'PUT',
+            headers : {
+              'content-type' : 'application/json'
+            },
+            body: JSON.stringify(addComment)
+          })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data)
+           
+        
+              Swal.fire({
+                title: 'Success!',
+                text: 'Blog Update Successfully',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+            
+          })
+
     
-    const {postTitle,postDescription,photo} = posts;
+
+    }
 
     return (
         <div className="mt-10 border rounded-xl p-3">
@@ -23,6 +65,14 @@ const AllPost = ({posts}) => {
             <h1>DownVote</h1>
             </div>
            </div>
+           <form onSubmit={handleComment}>
+           <div className="form-control">
+                        
+                        <input type="text" placeholder="Add Comment....." name="comment" className="input input-bordered mt-3 -mb-4 w-full required" />
+                    </div>
+
+                    <input type="submit" value="Add Comment" className="btn btn-block mt-4 lg:mt-7 text-white bg-lime-700" />
+           </form>
         </div>
     );
 };
