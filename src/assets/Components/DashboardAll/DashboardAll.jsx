@@ -5,8 +5,9 @@ import { IoMdAddCircle } from "react-icons/io";
 import { TfiAnnouncement } from "react-icons/tfi";
 import { Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import useAdmin from "../hooks/useAdmin";
 const DashboardAll = () => {
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
     return (
         <div className="flex max-w-6xl mx-auto">
            <div className="w-64 bg-orange-400 min-h-screen">
