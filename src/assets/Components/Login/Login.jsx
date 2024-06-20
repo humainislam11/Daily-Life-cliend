@@ -78,6 +78,13 @@ const Login = () => {
               console.log(res.data);
              
          })
+         Swal.fire({
+            
+          icon: "success",
+          title: "Login successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
       })
       .catch(error =>{
         console.error(error);
