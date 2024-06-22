@@ -24,7 +24,7 @@ const Register = () => {
         const from = new FormData(e.currentTarget);
         const name = from.get('name')
         
-        const photo = from.get('photo');
+        const photoURL = from.get('photo');
         const email = from.get('email');
         const password = from.get('password');
         console.log(name,photo,email,password);
@@ -43,12 +43,12 @@ const Register = () => {
           return;
         }
         
-        createUser(email,password)
+        createUser(email,password,photoURL)
     .then( () => {
       const userInfo = {
         name : name,
         email : email,
-        photo : photo,
+        photo : photoURL,
       }
       axiosPublic.post('/users',userInfo)
       .then(res =>{

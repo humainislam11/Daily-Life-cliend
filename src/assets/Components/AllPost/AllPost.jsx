@@ -1,8 +1,8 @@
 
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
+
 import { AiFillDislike, AiFillLike } from 'react-icons/ai';
-import { AuthContext } from '../AuthProvider/AuthProvider';
+
 
 import Swal from 'sweetalert2';
 // import useAxiosSecure from '../hooks/useAxiosSecure';
@@ -14,7 +14,7 @@ const AllPost = ({posts}) => {
 //   const [post, setPost] = useState(null);
    
 
-    const {user} = useContext(AuthContext);
+    
     const {postTitle,postDescription,photo,_id} = posts;
     console.log(_id)
 
@@ -26,7 +26,7 @@ const AllPost = ({posts}) => {
         console.log(addComment);
 
 
-        fetch(`http://localhost:5000/allPost/${_id}`,{
+        fetch(`https://y-mu-three.vercel.app/allPost/${_id}`,{
             method : 'PUT',
             headers : {
               'content-type' : 'application/json'

@@ -36,13 +36,9 @@ const router = createBrowserRouter([
             },{
                 path: '/',
                 element: <Home></Home>,
-                loader : ()=> fetch('http://localhost:5000/allPost')
+                loader : ()=> fetch('https://y-mu-three.vercel.app/allPost')
             }
-            // ,{
-            //     path:'/allPost/:id',
-            //     element: <AllPost></AllPost>,
-            //     loader : ({params})=> fetch(`http://localhost:5000/allPost/${params.id}`)
-            // }
+           
             ,{
                 path: '/updateProfile',
                 element: <PrivateRoot><UpdateProfile></UpdateProfile></PrivateRoot>

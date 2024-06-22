@@ -26,7 +26,7 @@ const AdminProfile = () => {
     const [allPost, setAllPost] = useState([]);
 
     useEffect( ()=>{
-        fetch(`http://localhost:5000/allPost`)
+        fetch(`https://y-mu-three.vercel.app/allPost`)
         .then(res => res.json())
         .then(data => setAllPost(data))
       },[]);
@@ -37,7 +37,7 @@ console.log(allPost)
     const [list, setList] = useState([]);
    
    useEffect( ()=>{
-     fetch(`http://localhost:5000/allPost/${user?.email}`)
+     fetch(`https://y-mu-three.vercel.app/allPost/${user?.email}`)
      .then(res => res.json())
      .then(data => setList(data))
    },[user?.email]);
