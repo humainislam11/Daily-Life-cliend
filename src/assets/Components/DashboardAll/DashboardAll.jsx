@@ -24,7 +24,7 @@ const DashboardAll = () => {
       <li className="mt-4"><NavLink to='/dashboardUser/reportedComments'><GoReport />Reported Comments
       </NavLink></li>
 
-      <li className="mt-4"><NavLink to='/dashboardUser/      makeAnnouncement'><TfiAnnouncement /> Make Announcement
+      <li className="mt-4"><NavLink to='/dashboardUser/makeAnnouncement'><TfiAnnouncement /> Make Announcement
       </NavLink></li>
                 </>
                 :

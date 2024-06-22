@@ -5,10 +5,13 @@ import { AiFillDislike, AiFillLike } from 'react-icons/ai';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 import Swal from 'sweetalert2';
+// import useAxiosSecure from '../hooks/useAxiosSecure';
 
 
 const AllPost = ({posts}) => {
-
+   
+//  const axiosSecure = useAxiosSecure();
+//   const [post, setPost] = useState(null);
    
 
     const {user} = useContext(AuthContext);
@@ -37,12 +40,27 @@ const AllPost = ({posts}) => {
         
               Swal.fire({
                 title: 'Success!',
-                text: 'Blog Update Successfully',
+                text: 'add Comment Successfully',
                 icon: 'success',
-                confirmButtonText: 'Cool'
+                confirmButtonText: 'ok'
               })
             
-          })
+          });
+
+
+        //   const handleUpvote = () => {
+        //     axiosSecure.put(`/post/${_id}/upvote`)
+        //         .then(r => {
+        //             setPost(prevPost => ({
+        //                 ...prevPost,
+        //                 upvotes: prevPost.upvotes + 1
+        //             }));
+        //         })
+        //         .catch(error => {
+        //             console.error('There was an error upvoting the post!', error);
+        //         });
+
+        // };
 
     
 
@@ -60,7 +78,7 @@ const AllPost = ({posts}) => {
             <h1>UpVote</h1>
            </div>
 
-           <div className='flex font-bold gap-2'>
+           <div  className='flex font-bold gap-2'>
             <AiFillDislike className='text-xl' />
             <h1>DownVote</h1>
             </div>

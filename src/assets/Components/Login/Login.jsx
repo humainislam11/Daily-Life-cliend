@@ -71,7 +71,8 @@ const Login = () => {
         console.log(result.user);
         const userInfo = {
           email: result.user?.email,
-          name: result.user?.displayName
+          name: result.user?.displayName,
+          photo: result.user?.photoURL
          }
          axiosPublic.post('/users',userInfo)
          .then( res =>{
@@ -100,6 +101,16 @@ const Login = () => {
       githubLogin()
       .then( result =>{
         console.log(result.user);
+        const userInfo = {
+          email: result.user?.email,
+          name: result.user?.displayName,
+          photo: result.user?.photoURL
+         }
+         axiosPublic.post('/users',userInfo)
+         .then( res =>{
+              console.log(res.data);
+             
+         })
         Swal.fire({
             
           icon: "success",

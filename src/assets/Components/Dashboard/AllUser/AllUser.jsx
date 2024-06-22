@@ -15,7 +15,8 @@ const AllUser = () => {
             
         }
         
-    })
+    });
+    
     const handleAdmin = user =>{
        axiosSecure.patch(`/users/admin/${user._id}`)
        .then(res =>{

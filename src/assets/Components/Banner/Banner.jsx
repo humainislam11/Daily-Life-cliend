@@ -1,8 +1,29 @@
 
 import { FaSearch } from 'react-icons/fa';
 import video from '../../../../public/201766-916357972_large.mp4'
+import {  useState } from 'react';
+import useSearch from '../hooks/useSearch';
+
+
+
 
 const Banner = () => {
+  const [search, setSearch] = useState('');
+
+  const searchPost = useSearch(search);
+   
+  // useEffect(()=>{
+  //   fetch(`http://localhost:5000//allPost`)
+  //   .then(res => res.json())
+  //   .then(data => setSearch(data))
+  // },[])
+
+  const handleSearch = e =>{
+    e.preventDefault();
+    const search = e.target.search.value;
+    console.log(search);
+    setSearch(search)
+  }
 
   
     return (
@@ -22,7 +43,7 @@ const Banner = () => {
               <div>
 
 
-                <form>
+                <form onSubmit={handleSearch}>
                 <div className="form-control">
         
           <input type="search" placeholder="Search a Post" name="search" className="input input-bordered mt-5" required />
