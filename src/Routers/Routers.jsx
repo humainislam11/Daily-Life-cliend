@@ -14,7 +14,7 @@ import UpdateProfile from "../assets/Components/Dashboard/UpdateProfile/UpdatePr
 import DashboardAll from "../assets/Components/DashboardAll/DashboardAll";
 import AllUser from "../assets/Components/Dashboard/AllUser/AllUser";
 import AdminProfile from "../assets/Components/Dashboard/AdminProfile/AdminProfile";
-import ReportedComments from "../assets/Components/Dashboard/ReportedComments/ReportedComments";
+
 import Make from "../assets/Components/Dashboard/Make/Make";
 
 
@@ -61,9 +61,6 @@ const router = createBrowserRouter([
                     },{
                         path: 'adminProfile',
                         element: <AdminProfile></AdminProfile>
-                    },{
-                        path: 'reportedComments',
-                        element: <ReportedComments></ReportedComments>
                     },{
                         path: 'makeAnnouncement',
                         element: <Make></Make>

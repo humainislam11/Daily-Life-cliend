@@ -1,61 +1,22 @@
 
-import { FaSearch } from 'react-icons/fa';
 import video from '../../../../public/201766-916357972_large.mp4'
-
-
-
-
 
 const Banner = () => {
   
-   
-  // useEffect(()=>{
-  //   fetch(`http://localhost:5000//allPost`)
-  //   .then(res => res.json())
-  //   .then(data => setSearch(data))
-  // },[])
-
- 
-
-  
     return (
-        <div className="hero lg:max-w-6xl mx-auto ">
-           
-            <video className='' src={video} autoPlay loop muted></video>
-        <div className="bg-opacity-60"></div>
-        <div className="hero-content text-neutral-content">
-            
-        <div className="">
-                {/* <h1 className="text-4xl mb-7 font-bold">OUR BLOG</h1>
-                <p className="text-[18px] mb-6 font-semibold">I love to share creative fun, silly stories, cute kid pictures and some genuine recommendations. <br />I live a balanced and busy life working from home, and sharing.</p> */}
-              <div className='lg:pr-[590px] lg:-mt-36'>
-                <h1 className='font-semibold text-2xl text-base-100'>OUR POST</h1>
-                <h1 className='text-4xl font-bold text-base-100'>Search a Post</h1>
-              </div>
-              <div>
-
-
-                <form >
-                <div className="form-control">
-        
-          <input type="search" placeholder="Search a Post" name="search" className="input input-bordered mt-5" required />
-          <button className='btn ml-[150px] lg:ml-[700px] -mt-12 lg:-mt-12 bg-lime-400 hover:bg-lime-400'><FaSearch />Search</button>
-        </div>
-                </form>
-
-
-              </div>
-
-            
-
-
-
-
-
-
+        <div className="hero lg:max-w-6xl mx-auto relative">
+            <video className="w-full" src={video} autoPlay loop muted></video>
+            <div className="absolute inset-0 bg-black opacity-60"></div>
+            <div className="hero-content text-neutral-content relative z-10">
+                <div className="max-w-4xl mx-auto text-center">
+                    <div className="">
+                        <h1 className="text-2xl lg:text-5xl font-bold text-base-100">Share Your Story</h1>
+                        <p className="font-semibold mt-5 text-base-100">Every journey is a story waiting to be told, filled with challenges that shape us and triumphs that define us. Embrace your narrative, for Its uniquely yours to share with the world.</p>
+                    </div>
+                    
+                </div>
             </div>
         </div>
-      </div>
     );
 };
 
